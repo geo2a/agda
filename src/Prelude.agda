@@ -54,3 +54,9 @@ zip : ∀ {A B} -> List A -> List B -> List (A × B)
 zip [] _                = []
 zip _  []               = []
 zip (x :: xs) (y :: ys) = (x , y) :: zip xs ys
+
+-- Bottom type
+data ⊥ : Set where
+
+¬ : Set -> Set
+¬ A = A -> ⊥

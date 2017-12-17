@@ -1,5 +1,13 @@
 module Prelude where
 
+-- Booleans
+data Bool : Set where
+  tt : Bool
+  ff : Bool
+
+if_then_else : {A : Set} -> Bool -> A -> A -> A
+if tt then x else _ = x
+if ff then _ else y = y
 -- Function composition
 _∘_ : ∀ {x y z : Set} -> (y -> z) -> (x -> y) -> (x -> z)
 (f ∘ g) x = f (g x)

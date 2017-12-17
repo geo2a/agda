@@ -8,6 +8,14 @@ data Bool : Set where
 if_then_else : {A : Set} -> Bool -> A -> A -> A
 if tt then x else _ = x
 if ff then _ else y = y
+
+-- Eq "type class"
+record Eq (A : Set) : Set where
+  field
+    _==_   : A -> A ->  Bool
+
+open Eq {{...}} public
+
 -- Function composition
 _∘_ : ∀ {x y z : Set} -> (y -> z) -> (x -> y) -> (x -> z)
 (f ∘ g) x = f (g x)

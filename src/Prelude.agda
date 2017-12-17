@@ -60,3 +60,8 @@ data ⊥ : Set where
 
 ¬ : Set -> Set
 ¬ A = A -> ⊥
+
+-- Natural numbers
+data ℕ : Set where
+  zero : ℕ
+  suc  : ℕ -> ℕ

@@ -65,3 +65,7 @@ removeVertex x ε = ε
 removeVertex x (v y) = if x == y then ε else (v y)
 removeVertex x (p + q) = removeVertex x p + removeVertex x q
 removeVertex x (p * q) = removeVertex x p + removeVertex x q
+
+induce : ∀ {A} -> (A -> Bool) -> Graph A -> Graph A
+induce p g =
+  foldg ε (λ x -> if p x then v x else ε) (λ x y → x + y) (λ x y → x * y) g

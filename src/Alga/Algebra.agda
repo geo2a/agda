@@ -1,4 +1,6 @@
-module Algebra where
+module Alga.Algebra where
+
+open import Agda.Builtin.Equality renaming (_≡_ to _===_)
 
 -- Core graph construction primitives
 data Graph (A : Set) : Set where
@@ -26,6 +28,8 @@ data _≡_ {A} : (x y : Graph A) -> Set where
     *right-congruence : ∀ {x y z : Graph A} -> x ≡ y -> z * x ≡ z * y
 
     -- Axioms of +
+    +left-identity  : ∀ {x     : Graph A} -> ε + x       ≡ x
+    +right-identity : ∀ {x     : Graph A} -> x + ε       ≡ x
     +commutativity : ∀ {x y : Graph A}   -> x + y       ≡ y + x
     +associativity : ∀ {x y z : Graph A} -> x + (y + z) ≡ (x + y) + z
 

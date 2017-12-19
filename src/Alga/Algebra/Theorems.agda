@@ -1,7 +1,7 @@
-module Algebra.Theorems where
+module Alga.Algebra.Theorems where
 
-open import Algebra
-open import Reasoning
+open import Alga.Algebra
+open import Alga.Reasoning
 
 +pre-idempotence : ∀ {A} {x : Graph A} -> x + x + ε ≡ x
 +pre-idempotence {_} {x} =

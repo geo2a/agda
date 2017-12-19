@@ -1,7 +1,7 @@
-module API where
+module Alga.API where
 
-open import Algebra
-open import Prelude
+open import Alga.Algebra
+open import Alga.Prelude
 
 empty : ∀ {A} -> Graph A
 empty = ε

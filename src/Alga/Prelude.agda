@@ -1,9 +1,17 @@
-module Prelude where
+module Alga.Prelude where
 
 -- Booleans
 data Bool : Set where
   tt : Bool
   ff : Bool
+
+_||_ : Bool -> Bool -> Bool
+tt || y = tt
+ff || y = y
+
+_&&_ : Bool -> Bool -> Bool
+tt && y = y
+ff && y = ff
 
 if_then_else : {A : Set} -> Bool -> A -> A -> A
 if tt then x else _ = x
@@ -56,10 +64,21 @@ zip _  []               = []
 zip (x :: xs) (y :: ys) = (x , y) :: zip xs ys
 
 -- Bottom type
-data ⊥ : Set where
+-- data ⊥ : Set where
 
-¬ : Set -> Set
-¬ A = A -> ⊥
+-- ¬ : Set -> Set
+-- ¬ A = A -> ⊥
+
+-- Decidable propositions and relations:
+-- Rel : Set -> Set₁
+-- Rel a = a -> a -> Set
+
+-- data Dec (P : Set) : Set where
+--   yes : (p : P) → Dec P
+--   no : (¬p : ¬ P) → Dec P
+
+-- Decidable : {a : Set} → Rel a → Set
+-- Decidable _∼_ = forall x y → Dec (x ∼ y)
 
 -- Natural numbers
 data ℕ : Set where
